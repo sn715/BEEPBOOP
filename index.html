@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page Wireframe</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="wireframe.css" />
+  </head>
+  <body>
+    <!-- Wireframe controls (not part of the real site) -->
+    <button class="notes-toggle" id="notesToggle" type="button">Hide notes</button>
+
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <div class="logo">LOGO</div>
+        <a href="#signup" class="btn btn--sm" data-cta="header">Get Discount</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- 1. Hero: headline + 2 short paragraphs left, product image right -->
+      <section class="section hero">
+        <span class="note">01 · Hero: big claim that matches the ad</span>
+        <div class="container split">
+          <div class="stack">
+            <h1>The World's First [Product] To [Big Outcome]</h1>
+            <p>[Product] is a [what it is] that [key differentiator, e.g. size or ease].</p>
+            <p>It's the fastest and easiest way to [main result], and the first in the world to [unique claim]!</p>
+          </div>
+          <div class="img img--hero">Hero Product Image</div>
+        </div>
+      </section>
+
+      <!-- 2. Email capture (reused below) -->
+      <section class="signup" id="signup">
+        <span class="note">02 · Capture the lead right after the hook</span>
+        <div class="container signup__inner">
+          <div>
+            <h2 class="signup__title">Get an exclusive discount</h2>
+            <p class="signup__text">We're launching soon. Get an exclusive discount by signing up now!</p>
+          </div>
+          <form class="signup__form" data-form="email-capture" data-location="top">
+            <label class="visually-hidden" for="email-top">Email address</label>
+            <input class="input" id="email-top" type="email" name="email" placeholder="Email Address" required />
+            <button class="btn btn--accent" type="submit">Submit</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- 3. Feature 1: text + icon row left, large product image right -->
+      <section class="section">
+        <span class="note">03 · Feature 1: what it does, with scannable icons</span>
+        <div class="container split">
+          <div class="stack">
+            <h2>Feature One Headline (What It Handles)</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. What goes in and what comes out.</p>
+            <p>Sed do eiusmod tempor incididunt. The tech that makes it work, in one sentence.</p>
+            <ul class="icon-row">
+              <li><div class="img img--icon">Icon</div><span>Item Type One</span></li>
+              <li><div class="img img--icon">Icon</div><span>Item Type Two</span></li>
+              <li><div class="img img--icon">Icon</div><span>Item Type Three</span></li>
+            </ul>
+          </div>
+          <div class="img img--hero">Large Product Image</div>
+        </div>
+      </section>
+
+      <!-- 4. Feature 2: image left, text right (layout flip) -->
+      <section class="section section--alt">
+        <span class="note">04 · Feature 2: product in a real setting (layout flips)</span>
+        <div class="container split">
+          <div class="img img--wide">Lifestyle Image</div>
+          <div class="stack">
+            <h2>Feature Two Headline (Fits Your Life)</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Why it fits their space or routine.</p>
+            <p>Sed do eiusmod tempor incididunt. Who it's sized for.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Modes / options: 3 columns -->
+      <section class="section">
+        <span class="note">05 · Options: show flexibility at a glance</span>
+        <div class="container stack">
+          <h2 class="center">3 Convenient Modes</h2>
+          <div class="grid-3">
+            <div class="option">
+              <div class="img img--icon">Icon</div>
+              <h3>Option One</h3>
+              <p class="eyebrow">Mode 1</p>
+              <p>Short description of what this option does.</p>
+            </div>
+            <div class="option">
+              <div class="img img--icon">Icon</div>
+              <h3>Option Two</h3>
+              <p class="eyebrow">Mode 2</p>
+              <p>Short description of what this option does.</p>
+            </div>
+            <div class="option">
+              <div class="img img--icon">Icon</div>
+              <h3>Option Three</h3>
+              <p class="eyebrow">Mode 3</p>
+              <p>Short description of what this option does.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Feature 3: text left, image right -->
+      <section class="section section--alt">
+        <span class="note">06 · Feature 3: knock out the top objections</span>
+        <div class="container split">
+          <div class="stack">
+            <h2>Feature Three Headline (Objection Busters)</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Answer worry #1 (e.g. smell, mess).</p>
+            <p>Sed do eiusmod tempor incididunt. Answer worry #2 (e.g. noise, cleaning).</p>
+          </div>
+          <div class="img img--wide">Close-up Image</div>
+        </div>
+      </section>
+
+      <!-- 7. How it works: 3 numbered steps -->
+      <section class="section">
+        <span class="note">07 · How it works: prove it's simple</span>
+        <div class="container stack">
+          <h2 class="center">From [Starting Point] To [Result] In 3 Simple Steps</h2>
+          <ol class="grid-3 steps">
+            <li class="step">
+              <span class="step__num">1</span>
+              <p>Short instruction for step one.</p>
+              <div class="img img--wide">Step 1 Image</div>
+            </li>
+            <li class="step">
+              <span class="step__num">2</span>
+              <p>Short instruction for step two.</p>
+              <div class="img img--wide">Step 2 Image</div>
+            </li>
+            <li class="step">
+              <span class="step__num">3</span>
+              <p>Short instruction for step three.</p>
+              <div class="img img--wide">Step 3 Image</div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 8. Mission / impact: centered copy + full-width image -->
+      <section class="section section--alt">
+        <span class="note">08 · Mission: the bigger reason to buy</span>
+        <div class="container stack">
+          <div class="narrow stack">
+            <h2>[Product] Helps You [Bigger Mission]</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. The bigger impact beyond the buyer.</p>
+            <p>Sed do eiusmod tempor incididunt. A concrete stat that makes the impact tangible.</p>
+          </div>
+          <div class="img img--banner">Wide Impact Image</div>
+        </div>
+      </section>
+
+      <!-- 9. Email capture repeat -->
+      <section class="signup">
+        <span class="note">09 · Second chance to convert</span>
+        <div class="container signup__inner">
+          <div>
+            <h2 class="signup__title">Get an exclusive discount</h2>
+            <p class="signup__text">We're launching soon. Get an exclusive discount by signing up now!</p>
+          </div>
+          <form class="signup__form" data-form="email-capture" data-location="bottom">
+            <label class="visually-hidden" for="email-bottom">Email address</label>
+            <input class="input" id="email-bottom" type="email" name="email" placeholder="Email Address" required />
+            <button class="btn btn--accent" type="submit">Submit</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <div class="logo">LOGO</div>
+        <div class="site-footer__links">
+          <a href="#">Contact</a><a href="#">Shipping</a><a href="#">Returns</a><a href="#">Privacy</a>
+        </div>
+        <p class="small">© 2026 Brand Name</p>
+      </div>
+    </footer>
+
+    <!-- Sticky mobile CTA -->
+    <div class="sticky-cta">
+      <a href="#signup" class="btn" data-cta="sticky">Get Exclusive Discount</a>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="wireframe.js"></script>
+  </body>
+</html>
