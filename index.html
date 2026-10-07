@@ -2,195 +2,365 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Landing Page Wireframe</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="wireframe.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>beep boop: a concert recorder that clips to your bag</title>
+    <meta
+      name="description"
+      content="press the button when the lights go down and again after the encore. reserve one from the first batch."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Funnel+Sans:wght@300..700&display=swap"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Marks JS as available so scroll effects only hide content when they can show it again -->
+    <script>document.documentElement.classList.add("js");</script>
   </head>
   <body>
-    <!-- Wireframe controls (not part of the real site) -->
-    <button class="notes-toggle" id="notesToggle" type="button">Hide notes</button>
+    <a class="skip-link" href="#main">skip to content</a>
 
+    <!-- ===== Header ===== -->
     <header class="site-header">
       <div class="container site-header__inner">
-        <div class="logo">LOGO</div>
-        <a href="#signup" class="btn btn--sm" data-cta="header">Get Discount</a>
+        <a href="#top" class="wordmark">beep boop</a>
+        <nav class="site-header__nav" aria-label="Page">
+          <a href="#sound" class="link">the sound</a>
+          <a href="#card" class="link">the card</a>
+          <a href="#questions" class="link">questions</a>
+          <a href="#reserve" class="btn btn--sm" data-cta="header">reserve mine</a>
+        </nav>
       </div>
     </header>
 
-    <main>
-      <!-- 1. Hero: headline + 2 short paragraphs left, product image right -->
-      <section class="section hero">
-        <span class="note">01 · Hero: big claim that matches the ad</span>
-        <div class="container split">
-          <div class="stack">
-            <h1>The World's First [Product] To [Big Outcome]</h1>
-            <p>[Product] is a [what it is] that [key differentiator, e.g. size or ease].</p>
-            <p>It's the fastest and easiest way to [main result], and the first in the world to [unique claim]!</p>
-          </div>
-          <div class="img img--hero">Hero Product Image</div>
-        </div>
-      </section>
+    <main id="main" class="page">
+      <!-- ===== Hero ===== -->
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="container hero__grid">
+          <div class="hero__copy">
+            <h1 id="hero-title" class="hero__title">a concert recorder that clips to your <span class="accent">bag.</span></h1>
+            <p class="hero__lead">
+              press the button when the lights go down and again after the encore. it records the whole show with
+              microphones made for how loud it gets, so your phone can stay in your pocket.
+            </p>
 
-      <!-- 2. Email capture (reused below) -->
-      <section class="signup" id="signup">
-        <span class="note">02 · Capture the lead right after the hook</span>
-        <div class="container signup__inner">
-          <div>
-            <h2 class="signup__title">Get an exclusive discount</h2>
-            <p class="signup__text">We're launching soon. Get an exclusive discount by signing up now!</p>
+            <form class="signup" data-form="email-capture" data-location="hero">
+              <label class="visually-hidden" for="email-hero">email address</label>
+              <input class="signup__input" id="email-hero" type="email" name="email" placeholder="your email" autocomplete="email" required />
+              <button class="signup__btn" type="submit">reserve mine <span aria-hidden="true">→</span></button>
+            </form>
+            <p class="hero__note">
+              <span data-price="reservation">—</span> for the first batch, then <span data-price="retail">—</span>.
+              free shipping in the us. no subscription, ever.
+            </p>
           </div>
-          <form class="signup__form" data-form="email-capture" data-location="top">
-            <label class="visually-hidden" for="email-top">Email address</label>
-            <input class="input" id="email-top" type="email" name="email" placeholder="Email Address" required />
-            <button class="btn btn--accent" type="submit">Submit</button>
-          </form>
-        </div>
-      </section>
 
-      <!-- 3. Feature 1: text + icon row left, large product image right -->
-      <section class="section">
-        <span class="note">03 · Feature 1: what it does, with scannable icons</span>
-        <div class="container split">
-          <div class="stack">
-            <h2>Feature One Headline (What It Handles)</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. What goes in and what comes out.</p>
-            <p>Sed do eiusmod tempor incididunt. The tech that makes it work, in one sentence.</p>
-            <ul class="icon-row">
-              <li><div class="img img--icon">Icon</div><span>Item Type One</span></li>
-              <li><div class="img img--icon">Icon</div><span>Item Type Two</span></li>
-              <li><div class="img img--icon">Icon</div><span>Item Type Three</span></li>
-            </ul>
-          </div>
-          <div class="img img--hero">Large Product Image</div>
-        </div>
-      </section>
-
-      <!-- 4. Feature 2: image left, text right (layout flip) -->
-      <section class="section section--alt">
-        <span class="note">04 · Feature 2: product in a real setting (layout flips)</span>
-        <div class="container split">
-          <div class="img img--wide">Lifestyle Image</div>
-          <div class="stack">
-            <h2>Feature Two Headline (Fits Your Life)</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Why it fits their space or routine.</p>
-            <p>Sed do eiusmod tempor incididunt. Who it's sized for.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- 5. Modes / options: 3 columns -->
-      <section class="section">
-        <span class="note">05 · Options: show flexibility at a glance</span>
-        <div class="container stack">
-          <h2 class="center">3 Convenient Modes</h2>
-          <div class="grid-3">
-            <div class="option">
-              <div class="img img--icon">Icon</div>
-              <h3>Option One</h3>
-              <p class="eyebrow">Mode 1</p>
-              <p>Short description of what this option does.</p>
+          <figure class="hero__media" data-tilt>
+            <div class="ticket">
+              <div class="placeholder ticket__photo" role="img" aria-label="Image placeholder">
+                <span class="placeholder__label">photo: the device clipped to a bag strap in a real venue</span>
+              </div>
+              <div class="ticket__stub" aria-hidden="true">
+                <span>admit one</span>
+                <span>beep boop</span>
+              </div>
             </div>
-            <div class="option">
-              <div class="img img--icon">Icon</div>
-              <h3>Option Two</h3>
-              <p class="eyebrow">Mode 2</p>
-              <p>Short description of what this option does.</p>
-            </div>
-            <div class="option">
-              <div class="img img--icon">Icon</div>
-              <h3>Option Three</h3>
-              <p class="eyebrow">Mode 3</p>
-              <p>Short description of what this option does.</p>
-            </div>
+            <figcaption class="caption">prototype render. nothing has been manufactured yet.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Marquee: concrete moments from the night (decorative, duplicated for a seamless loop) -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>the opener</span><span>the song you came for</span><span>the encore</span><span>the walk to the car</span><span>the drive home</span>
+          <span>the opener</span><span>the song you came for</span><span>the encore</span><span>the walk to the car</span><span>the drive home</span>
+        </div>
+      </div>
+
+      <!-- ===== The tradeoff ===== -->
+      <section class="section tradeoff" aria-label="The tradeoff">
+        <div class="container">
+          <div class="tradeoff__text" data-scroll-words>
+            <p>
+              right now you either film the show or actually watch it. film it and you spend the night behind a
+              screen. don't, and a month later you can barely remember it.
+            </p>
+            <p>
+              beep boop clips to your bag and records the whole concert. one press at the start, one at the end.
+            </p>
+            <p class="tradeoff__close">hands down, phone in your pocket, and the night still there on the walk home.</p>
           </div>
         </div>
       </section>
 
-      <!-- 6. Feature 3: text left, image right -->
-      <section class="section section--alt">
-        <span class="note">06 · Feature 3: knock out the top objections</span>
-        <div class="container split">
-          <div class="stack">
-            <h2>Feature Three Headline (Objection Busters)</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Answer worry #1 (e.g. smell, mess).</p>
-            <p>Sed do eiusmod tempor incididunt. Answer worry #2 (e.g. noise, cleaning).</p>
+      <!-- Full-bleed venue photo -->
+      <figure class="photo-band reveal">
+        <div class="placeholder placeholder--bleed" role="img" aria-label="Image placeholder">
+          <span class="placeholder__label">photo: a crowd from behind, warm low light, the device on someone's bag strap</span>
+        </div>
+      </figure>
+
+      <!-- ===== Sound ===== -->
+      <section class="section sound" id="sound" aria-labelledby="sound-title">
+        <div class="container sound__grid">
+          <div class="sound__copy reveal">
+            <p class="kicker">the sound</p>
+            <h2 id="sound-title">it sounds like the room you were standing in.</h2>
+            <p>
+              phone microphones clip and distort as soon as a show gets loud. beep boop's are rated for over 100
+              decibels, so the kick drum is still a kick drum when you play it back.
+            </p>
+            <p>
+              each recording saves to the memory card as its own show, with the date and venue attached. you won't be
+              scrolling through a camera roll to find it.
+            </p>
           </div>
-          <div class="img img--wide">Close-up Image</div>
+
+          <!-- A/B player as a record. Sample URLs come from js/config.js; without them it says so honestly. -->
+          <div class="record-player reveal" data-ab-player>
+            <button class="record" type="button" data-ab-play aria-label="Play sample" data-cursor-label="play">
+              <span class="record__label"><span class="record__icon" aria-hidden="true"></span></span>
+            </button>
+            <div class="record-player__switch" role="radiogroup" aria-label="Choose recording">
+              <button type="button" role="radio" aria-checked="true" data-ab-source="phone">on a phone</button>
+              <span aria-hidden="true">/</span>
+              <button type="button" role="radio" aria-checked="false" data-ab-source="device">on beep boop</button>
+            </div>
+            <p class="record-player__status" data-ab-status aria-live="polite">
+              the same song, recorded in the same room both ways. real samples are on the way.
+            </p>
+          </div>
         </div>
       </section>
 
-      <!-- 7. How it works: 3 numbered steps -->
-      <section class="section">
-        <span class="note">07 · How it works: prove it's simple</span>
-        <div class="container stack">
-          <h2 class="center">From [Starting Point] To [Result] In 3 Simple Steps</h2>
-          <ol class="grid-3 steps">
-            <li class="step">
-              <span class="step__num">1</span>
-              <p>Short instruction for step one.</p>
-              <div class="img img--wide">Step 1 Image</div>
-            </li>
-            <li class="step">
-              <span class="step__num">2</span>
-              <p>Short instruction for step two.</p>
-              <div class="img img--wide">Step 2 Image</div>
-            </li>
-            <li class="step">
-              <span class="step__num">3</span>
-              <p>Short instruction for step three.</p>
-              <div class="img img--wide">Step 3 Image</div>
-            </li>
+      <!-- ===== One button ===== -->
+      <section class="section button-section" aria-labelledby="button-title">
+        <div class="container collage">
+          <div class="collage__images">
+            <div class="placeholder placeholder--arch collage__main reveal" role="img" aria-label="Image placeholder">
+              <span class="placeholder__label">photo: the device in someone's hand, thumb on the button</span>
+            </div>
+            <div class="placeholder collage__small reveal" role="img" aria-label="Image placeholder">
+              <span class="placeholder__label">detail: the button</span>
+            </div>
+          </div>
+          <div class="collage__copy reveal">
+            <p class="kicker">the button</p>
+            <h2 id="button-title">one button, and nothing to look at.</h2>
+            <p>
+              press it once when the lights go down and once when it's over. there's no screen, and the button is big
+              enough to find by feel in the dark, so you never look away from the stage.
+            </p>
+            <p>
+              it clips to a bag strap or a belt loop and stays put all night. your hands are free, and your phone keeps
+              its battery for the ride home.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== The card is yours (moves up on mobile, see .page in CSS) ===== -->
+      <section class="section section--night card" id="card" aria-labelledby="card-title">
+        <div class="container card__grid">
+          <div class="card__copy reveal">
+            <p class="kicker">the card</p>
+            <h2 id="card-title">your recordings live on a card you can hold.</h2>
+            <p class="card__big">no account, no cloud, no subscription.</p>
+            <p>
+              everything is saved to a memory card inside the device, and nothing disappears if we do. pull the card
+              out and the files open on any computer.
+            </p>
+            <p>the device works completely on its own. the app is a bonus, never a requirement.</p>
+          </div>
+          <div class="placeholder placeholder--night placeholder--circle card__image reveal" role="img" aria-label="Image placeholder">
+            <span class="placeholder__label">photo: the memory card in an open palm</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== App (deliberately quieter) ===== -->
+      <section class="section app" aria-labelledby="app-title">
+        <div class="container app__grid">
+          <div class="app__shots">
+            <div class="placeholder placeholder--screen reveal" role="img" aria-label="Image placeholder">
+              <span class="placeholder__label">app: a journal with months of shows</span>
+            </div>
+            <div class="placeholder placeholder--screen app__shot--offset reveal" role="img" aria-label="Video placeholder">
+              <span class="placeholder__label">screen recording: making a mixtape</span>
+            </div>
+          </div>
+          <div class="app__copy reveal">
+            <p class="kicker">the app, if you want it</p>
+            <h2 id="app-title" class="h3">every show gets its own page.</h2>
+            <p>
+              open the app and each night has its own entry, with the date, the venue, and any photos or notes you add.
+              after a year it reads like a diary of everywhere you went.
+            </p>
+            <p>
+              you can also make mixtapes that put your concert recordings next to your own music, then send them back to
+              the device to play anywhere.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== How it works ===== -->
+      <section class="section section--paper how" aria-labelledby="how-title">
+        <div class="container">
+          <h2 id="how-title" class="how__title reveal">how it works</h2>
+          <ol class="how__steps">
+            <li class="reveal"><span class="how__num">1</span><p>clip it to your bag strap.</p></li>
+            <li class="reveal"><span class="how__num">2</span><p>press the button when the show starts.</p></li>
+            <li class="reveal"><span class="how__num">3</span><p>press it again after the encore.</p></li>
+            <li class="reveal"><span class="how__num">4</span><p>plug in headphones on the way home.</p></li>
           </ol>
         </div>
       </section>
 
-      <!-- 8. Mission / impact: centered copy + full-width image -->
-      <section class="section section--alt">
-        <span class="note">08 · Mission: the bigger reason to buy</span>
-        <div class="container stack">
-          <div class="narrow stack">
-            <h2>[Product] Helps You [Bigger Mission]</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. The bigger impact beyond the buyer.</p>
-            <p>Sed do eiusmod tempor incididunt. A concrete stat that makes the impact tangible.</p>
+      <!-- ===== The object ===== -->
+      <section class="section object" aria-labelledby="object-title">
+        <div class="container object__grid">
+          <div class="placeholder placeholder--object reveal" role="img" aria-label="Image placeholder">
+            <span class="placeholder__label">photo: the device on a warm neutral ground, soft light from one side</span>
           </div>
-          <div class="img img--banner">Wide Impact Image</div>
+          <div class="object__copy reveal">
+            <h2 id="object-title" class="h3">the object</h2>
+            <dl class="facts">
+              <div><dt>made from</dt><dd><span class="tbc">tbc</span></dd></div>
+              <div><dt>size in your hand</dt><dd><span class="tbc">tbc</span></dd></div>
+              <div><dt>weight</dt><dd><span class="tbc">tbc</span></dd></div>
+              <div><dt>the button</dt><dd><span class="tbc">tbc</span></dd></div>
+            </dl>
+          </div>
         </div>
       </section>
 
-      <!-- 9. Email capture repeat -->
-      <section class="signup">
-        <span class="note">09 · Second chance to convert</span>
-        <div class="container signup__inner">
-          <div>
-            <h2 class="signup__title">Get an exclusive discount</h2>
-            <p class="signup__text">We're launching soon. Get an exclusive discount by signing up now!</p>
+      <!-- ===== Specifications ===== -->
+      <section class="section section--paper specs" aria-labelledby="specs-title">
+        <div class="container specs__grid">
+          <div class="reveal">
+            <h2 id="specs-title" class="h3">the details</h2>
+            <p class="specs__intro">for anyone who wants the numbers. anything we haven't confirmed yet is marked tbc instead of guessed.</p>
           </div>
-          <form class="signup__form" data-form="email-capture" data-location="bottom">
-            <label class="visually-hidden" for="email-bottom">Email address</label>
-            <input class="input" id="email-bottom" type="email" name="email" placeholder="Email Address" required />
-            <button class="btn btn--accent" type="submit">Submit</button>
-          </form>
+          <dl class="spec-table reveal">
+            <div><dt>microphones</dt><dd>rated for over 100 decibels</dd></div>
+            <div><dt>battery life</dt><dd><span class="tbc">tbc</span></dd></div>
+            <div><dt>storage</dt><dd><span class="tbc">tbc</span></dd></div>
+            <div><dt>recording format</dt><dd><span class="tbc">tbc</span></dd></div>
+            <div><dt>transfer</dt><dd><span class="tbc">tbc</span></dd></div>
+            <div><dt>playback</dt><dd>headphones, straight from the device</dd></div>
+            <div><dt>dimensions</dt><dd><span class="tbc">tbc</span></dd></div>
+            <div><dt>weight</dt><dd><span class="tbc">tbc</span></dd></div>
+            <div><dt>raw sample files</dt><dd>posted here once we have them</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- ===== FAQ ===== -->
+      <section class="section faq-section" id="questions" aria-labelledby="faq-title">
+        <div class="container faq-grid">
+          <h2 id="faq-title" class="faq-grid__title reveal">questions</h2>
+          <div class="faq reveal">
+            <details>
+              <summary>is this different from recording on my phone?</summary>
+              <p>phone microphones clip and distort once a show gets loud. beep boop's are rated for over 100 decibels, so playback sounds like the room. it also clips to your bag, so your hands stay free and your phone stays in your pocket.</p>
+            </details>
+            <details>
+              <summary>can i hear a real sample recorded at an actual concert?</summary>
+              <p>not yet. we'll post one on this page, next to a phone recording of the same room, as soon as we have it.</p>
+            </details>
+            <details>
+              <summary>how long does the battery last, and how many hours fit on the card?</summary>
+              <p><span class="tbc">tbc: battery life and card capacity</span></p>
+            </details>
+            <details>
+              <summary>is it legal to record concerts? will venues let it through security?</summary>
+              <p><span class="tbc">tbc: honest answer pending review</span></p>
+            </details>
+            <details>
+              <summary>what file format are the recordings, and can i open them without the app?</summary>
+              <p><span class="tbc">tbc: file format</span> the files sit on a removable memory card and open on any computer, no app needed.</p>
+            </details>
+            <details>
+              <summary>does it pick up people talking next to me?</summary>
+              <p><span class="tbc">tbc</span></p>
+            </details>
+            <details>
+              <summary>how securely does the clip attach? can it fall off in a crowd?</summary>
+              <p><span class="tbc">tbc</span></p>
+            </details>
+            <details>
+              <summary>does the device work without the app?</summary>
+              <p>yes. you can record and listen back on headphones with the device alone. the app is there if you want the journal and mixtapes.</p>
+            </details>
+            <details>
+              <summary>is there a subscription?</summary>
+              <p>no. beep boop is a one-time purchase, and there will never be a subscription.</p>
+            </details>
+            <details>
+              <summary>what happens to my recordings if the company shuts down?</summary>
+              <p>nothing. they live on a memory card in the device, not on our servers, and the files open on any computer.</p>
+            </details>
+            <details>
+              <summary>when does it ship, and has anything been manufactured yet?</summary>
+              <p>nothing has been manufactured yet. we're taking reservations for the first batch now. <span class="tbc">tbc: ship window</span></p>
+            </details>
+            <details>
+              <summary>is the battery replaceable? what's the warranty?</summary>
+              <p><span class="tbc">tbc</span></p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Reserve ===== -->
+      <section class="section section--night reserve" id="reserve" aria-labelledby="reserve-title">
+        <div class="container reserve__grid">
+          <div class="placeholder placeholder--night reserve__image reveal" role="img" aria-label="Image placeholder">
+            <span class="placeholder__label">photo: several units in a row, receding, low three-quarter angle</span>
+          </div>
+          <div class="reserve__copy reveal">
+            <h2 id="reserve-title" class="reserve__title">first batch, <span class="accent">first in line.</span></h2>
+            <p>we're making a limited run. sign up to reserve one before they're gone.</p>
+
+            <p class="reserve__price">
+              <span class="reserve__now" data-price="reservation">—</span>
+              <span class="reserve__was">usually <s data-price="retail">—</s></span>
+            </p>
+
+            <form class="signup signup--night" data-form="email-capture" data-location="reserve">
+              <label class="visually-hidden" for="email-reserve">email address</label>
+              <input class="signup__input" id="email-reserve" type="email" name="email" placeholder="your email" autocomplete="email" required />
+              <button class="signup__btn" type="submit">reserve mine <span aria-hidden="true">→</span></button>
+            </form>
+            <p class="reserve__fine">free shipping in the us. we aren't shipping internationally at launch. one-time purchase, no subscription.</p>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container site-footer__inner">
-        <div class="logo">LOGO</div>
-        <div class="site-footer__links">
-          <a href="#">Contact</a><a href="#">Shipping</a><a href="#">Returns</a><a href="#">Privacy</a>
+      <div class="container">
+        <div class="site-footer__row">
+          <nav class="site-footer__links" aria-label="Footer">
+            <a href="#" class="link">contact</a><a href="#" class="link">privacy</a><a href="#" class="link">terms</a>
+          </nav>
+          <p>© <span data-year></span> beep boop</p>
         </div>
-        <p class="small">© 2026 Brand Name</p>
+        <p class="site-footer__mark" aria-hidden="true">beep boop</p>
       </div>
     </footer>
 
-    <!-- Sticky mobile CTA -->
-    <div class="sticky-cta">
-      <a href="#signup" class="btn" data-cta="sticky">Get Exclusive Discount</a>
+    <!-- Sticky reserve bar: small screens only, hides while a signup form is on screen -->
+    <div class="sticky-cta" data-sticky-cta>
+      <a href="#reserve" class="btn btn--block" data-cta="sticky">reserve mine · <span data-price="reservation">—</span></a>
     </div>
 
-    <script src="main.js"></script>
-    <script src="wireframe.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
