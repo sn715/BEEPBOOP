@@ -15,6 +15,7 @@ Open `index.html` in a browser.
 |---|---|
 | `index.html` | The page: every section, in order |
 | `css/styles.css` | All styles, written mobile-first |
+| `assets/renders/` | Product renders as WebP (resized to 1800px wide). Originals live with the designer |
 | `js/config.js` | Values that change: **prices** and **A/B audio sample URLs** |
 | `js/main.js` | Behavior: signup forms, prices, A/B record player, ticket tilt, scroll effects, sticky bar, custom cursor, analytics hook |
 
@@ -48,8 +49,12 @@ Add the two sample files and set `samples.phone` and `samples.device` in `js/con
 ### Unconfirmed facts are marked TBC
 `<span class="tbc">tbc</span>` shows up as a soft amber pill. The brief says to never guess specs, so these stay visible until the team confirms each one. To find them all, search the HTML for `class="tbc"`.
 
-### Image placeholders
-`.placeholder` boxes describe the shot that belongs there, following the brief's photography direction. To swap one, replace the `<div class="placeholder ...">` with an `<img>` or `<video>`. If the image is a render, keep the "prototype render" caption.
+### Images and placeholders
+Product renders sit in `.placeholder.placeholder--render` frames with an `<img>` inside. The frame's shape class (`--arch`, `--object`, `--bleed` and so on) sets the crop, and `object-position` on the `<img>` fine-tunes it. The renders have black backgrounds, so render frames are black too.
+
+Spots still waiting on real photos stay as grey `.placeholder` boxes with a label describing the shot: the crowd/venue photo, the memory card in a palm, and the app screens. To fill one, remove its label `<span>`, add `placeholder--render` (or keep the grey for light photos), and drop in an `<img>`.
+
+The brief requires being honest about renders: the hero caption and the note under "the object" say the images are prototype renders. Keep those until real photos replace them.
 
 ### Styles
 - **House style is all lowercase.** Write copy in lowercase. `body` also sets `text-transform: lowercase` as a safety net.

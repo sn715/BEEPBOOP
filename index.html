@@ -6,7 +6,7 @@
     <title>beep boop: a concert recorder that clips to your bag</title>
     <meta
       name="description"
-      content="press the button when the lights go down and again after the encore. reserve one from the first batch."
+      content="press record when the lights go down and again after the encore. reserve one from the first batch."
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,7 +43,7 @@
           <div class="hero__copy">
             <h1 id="hero-title" class="hero__title">a concert recorder that clips to your <span class="accent">bag.</span></h1>
             <p class="hero__lead">
-              press the button when the lights go down and again after the encore. it records the whole show with
+              press record when the lights go down and again after the encore. it keeps the whole show with
               microphones made for how loud it gets, so your phone can stay in your pocket.
             </p>
 
@@ -60,8 +60,8 @@
 
           <figure class="hero__media" data-tilt>
             <div class="ticket">
-              <div class="placeholder ticket__photo" role="img" aria-label="Image placeholder">
-                <span class="placeholder__label">photo: the device clipped to a bag strap in a real venue</span>
+              <div class="placeholder placeholder--render ticket__photo">
+                <img src="assets/renders/floating-three-quarter.webp" alt="render of beep boop floating at an angle, orange record button on the side" width="1800" height="1286" fetchpriority="high" decoding="async" />
               </div>
               <div class="ticket__stub" aria-hidden="true">
                 <span>admit one</span>
@@ -99,8 +99,8 @@
 
       <!-- Full-bleed venue photo -->
       <figure class="photo-band reveal">
-        <div class="placeholder placeholder--bleed" role="img" aria-label="Image placeholder">
-          <span class="placeholder__label">photo: a crowd from behind, warm low light, the device on someone's bag strap</span>
+        <div class="placeholder placeholder--render placeholder--bleed">
+          <img src="assets/renders/screen-detail.webp" alt="render close-up of the screen showing a recording time and the date" width="1800" height="1286" loading="lazy" decoding="async" style="object-position: 50% 40%" />
         </div>
       </figure>
 
@@ -137,23 +137,27 @@
         </div>
       </section>
 
-      <!-- ===== One button ===== -->
+      <!-- ===== Record button, screen, wheel ===== -->
       <section class="section button-section" aria-labelledby="button-title">
         <div class="container collage">
           <div class="collage__images">
-            <div class="placeholder placeholder--arch collage__main reveal" role="img" aria-label="Image placeholder">
-              <span class="placeholder__label">photo: the device in someone's hand, thumb on the button</span>
+            <div class="placeholder placeholder--render placeholder--arch collage__main reveal">
+              <img src="assets/renders/front.webp" alt="render of beep boop from the front: screen, playback wheel and orange side button" width="1800" height="1286" loading="lazy" decoding="async" />
             </div>
-            <div class="placeholder collage__small reveal" role="img" aria-label="Image placeholder">
-              <span class="placeholder__label">detail: the button</span>
+            <div class="placeholder placeholder--render collage__small reveal">
+              <img src="assets/renders/side-record-button.webp" alt="render of the ridged orange record button on the side of the device" width="1800" height="1286" loading="lazy" decoding="async" style="object-position: 34% 55%" />
             </div>
           </div>
           <div class="collage__copy reveal">
-            <p class="kicker">the button</p>
-            <h2 id="button-title">one button, and nothing to look at.</h2>
+            <p class="kicker">the controls</p>
+            <h2 id="button-title">recording takes one press of the orange button.</h2>
             <p>
-              press it once when the lights go down and once when it's over. there's no screen, and the button is big
-              enough to find by feel in the dark, so you never look away from the stage.
+              press it once when the lights go down and once when it's over. it sits on the side and it's ridged, so you
+              can find it by feel in the dark without looking away from the stage.
+            </p>
+            <p>
+              the small screen on the front shows how long you've been recording, the date, and the battery. the wheel
+              around the play button is for later, when you're listening back on the way home.
             </p>
             <p>
               it clips to a bag strap or a belt loop and stays put all night. your hands are free, and your phone keeps
@@ -214,9 +218,9 @@
           <h2 id="how-title" class="how__title reveal">how it works</h2>
           <ol class="how__steps">
             <li class="reveal"><span class="how__num">1</span><p>clip it to your bag strap.</p></li>
-            <li class="reveal"><span class="how__num">2</span><p>press the button when the show starts.</p></li>
+            <li class="reveal"><span class="how__num">2</span><p>press the orange button when the show starts.</p></li>
             <li class="reveal"><span class="how__num">3</span><p>press it again after the encore.</p></li>
-            <li class="reveal"><span class="how__num">4</span><p>plug in headphones on the way home.</p></li>
+            <li class="reveal"><span class="how__num">4</span><p>plug in headphones and press play on the way home.</p></li>
           </ol>
         </div>
       </section>
@@ -224,16 +228,17 @@
       <!-- ===== The object ===== -->
       <section class="section object" aria-labelledby="object-title">
         <div class="container object__grid">
-          <div class="placeholder placeholder--object reveal" role="img" aria-label="Image placeholder">
-            <span class="placeholder__label">photo: the device on a warm neutral ground, soft light from one side</span>
+          <div class="placeholder placeholder--render placeholder--object reveal">
+            <img src="assets/renders/iso-top.webp" alt="render of beep boop from above at an angle, showing its thin metal body" width="1800" height="1286" loading="lazy" decoding="async" />
           </div>
           <div class="object__copy reveal">
             <h2 id="object-title" class="h3">the object</h2>
+            <p class="caption">all product images are prototype renders.</p>
             <dl class="facts">
               <div><dt>made from</dt><dd><span class="tbc">tbc</span></dd></div>
               <div><dt>size in your hand</dt><dd><span class="tbc">tbc</span></dd></div>
               <div><dt>weight</dt><dd><span class="tbc">tbc</span></dd></div>
-              <div><dt>the button</dt><dd><span class="tbc">tbc</span></dd></div>
+              <div><dt>the buttons</dt><dd><span class="tbc">tbc</span></dd></div>
             </dl>
           </div>
         </div>
@@ -252,6 +257,8 @@
             <div><dt>storage</dt><dd><span class="tbc">tbc</span></dd></div>
             <div><dt>recording format</dt><dd><span class="tbc">tbc</span></dd></div>
             <div><dt>transfer</dt><dd><span class="tbc">tbc</span></dd></div>
+            <div><dt>controls</dt><dd>record button on the side, playback wheel on the front</dd></div>
+            <div><dt>screen</dt><dd>small display: recording time, date, battery</dd></div>
             <div><dt>playback</dt><dd>headphones, straight from the device</dd></div>
             <div><dt>dimensions</dt><dd><span class="tbc">tbc</span></dd></div>
             <div><dt>weight</dt><dd><span class="tbc">tbc</span></dd></div>
@@ -320,8 +327,8 @@
       <!-- ===== Reserve ===== -->
       <section class="section section--night reserve" id="reserve" aria-labelledby="reserve-title">
         <div class="container reserve__grid">
-          <div class="placeholder placeholder--night reserve__image reveal" role="img" aria-label="Image placeholder">
-            <span class="placeholder__label">photo: several units in a row, receding, low three-quarter angle</span>
+          <div class="placeholder placeholder--render placeholder--night reserve__image reveal">
+            <img src="assets/renders/front-tilted.webp" alt="render of beep boop tilted against a dark background" width="1800" height="1286" loading="lazy" decoding="async" />
           </div>
           <div class="reserve__copy reveal">
             <h2 id="reserve-title" class="reserve__title">first batch, <span class="accent">first in line.</span></h2>
