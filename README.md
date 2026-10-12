@@ -48,6 +48,15 @@ The order follows the product brief, section 9. The design is art-directed for d
 13. **Reserve:** "first batch, first in line", with the price and the second signup form.
 14. **Footer:** a giant "beep boop" bleeding off the bottom.
 
+## Waitlist signups → Google Sheet
+
+Both signup forms post to `app/api/waitlist/route.ts`, which forwards the email to a Google Apps Script web app attached to the waitlist sheet (code in `google-apps-script/waitlist.gs`). The script adds a row (timestamp, email, which form) and skips duplicates.
+
+It needs two environment variables, set in Vercel and in `.env.local` for local dev:
+
+- `WAITLIST_SCRIPT_URL`: the Apps Script web app URL (ends in `/exec`)
+- `WAITLIST_SECRET`: must match `SECRET` in the Apps Script
+
 ## Things to know before editing
 
 ### Prices live in `js/config.js` only
