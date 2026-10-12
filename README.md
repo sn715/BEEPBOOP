@@ -3,20 +3,31 @@ gx landing page!
 
 Pre-launch landing page for **Beep Boop**, a clip-on concert recorder. Visitors arrive from ads, and the page's job is to answer "my phone already does this" and collect reservation emails. The product brief decides section order, copy and claims; if anything here conflicts with it, the brief wins.
 
-It's plain HTML, CSS and JavaScript, with no build step and no dependencies. Fonts load from Google Fonts.
+It's a Next.js (App Router, TypeScript) app. Fonts are loaded with `next/font`.
 
 ## Running it
 
-Open `index.html` in a browser.
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm start        # serve the production build
+```
 
 ## Files
 
 | File | What it does |
 |---|---|
-| `index.html` | The page: every section, in order |
-| `css/styles.css` | All styles, written mobile-first |
-| `js/config.js` | Values that change: **prices** and **A/B audio sample URLs** |
-| `js/main.js` | Behavior: signup forms, prices, A/B record player, ticket tilt, scroll effects, sticky bar, custom cursor, analytics hook |
+| `app/page.tsx` | The page: every section, in order |
+| `app/layout.tsx` | `<html>` shell, metadata, fonts |
+| `app/globals.css` | All styles, written mobile-first |
+| `lib/config.ts` | Site-wide values (name, title, description) |
+| `lib/track.ts` | The `track()` analytics hook |
+| `components/SignupForm.tsx` | Email signup form |
+| `components/Tilt.tsx` | Hero image that leans toward the mouse |
+| `components/ScrollWords.tsx` | Text that lights up word by word on scroll |
+| `components/SiteEffects.tsx` | Scroll reveal, sticky mobile CTA, custom cursor, CTA tracking |
+| `public/images/` | App mockups and other images |
 
 ## Page structure
 
