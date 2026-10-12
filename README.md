@@ -3,21 +3,32 @@ gx landing page!
 
 Pre-launch landing page for **Beep Boop**, a clip-on concert recorder. Visitors arrive from ads, and the page's job is to answer "my phone already does this" and collect reservation emails. The product brief decides section order, copy and claims; if anything here conflicts with it, the brief wins.
 
-It's plain HTML, CSS and JavaScript, with no build step and no dependencies. Fonts load from Google Fonts.
+It's a Next.js (App Router, TypeScript) app. Fonts are loaded with `next/font`.
 
 ## Running it
 
-Open `index.html` in a browser.
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm start        # serve the production build
+```
 
 ## Files
 
 | File | What it does |
 |---|---|
-| `index.html` | The page: every section, in order |
-| `css/styles.css` | All styles, written mobile-first |
-| `assets/renders/` | Product renders as WebP (resized to 1800px wide). Originals live with the designer |
-| `js/config.js` | Values that change: **prices** and **A/B audio sample URLs** |
-| `js/main.js` | Behavior: signup forms, prices, A/B record player, ticket tilt, scroll effects, sticky bar, custom cursor, analytics hook |
+| `app/page.tsx` | The page: every section, in order |
+| `app/layout.tsx` | `<html>` shell, metadata, fonts |
+| `app/globals.css` | All styles, written mobile-first |
+| `lib/config.ts` | Site-wide values (name, title, description) |
+| `lib/track.ts` | The `track()` analytics hook |
+| `components/SignupForm.tsx` | Email signup form |
+| `components/Tilt.tsx` | Hero image that leans toward the mouse |
+| `components/ScrollWords.tsx` | Text that lights up word by word on scroll |
+| `components/SiteEffects.tsx` | Scroll reveal, sticky mobile CTA, custom cursor, CTA tracking |
+| `public/images/` | App mockups and other images |
+| `assets/renders/` | Product renders of the clip-on recorder (WebP), from the earlier device page. Not used by the current page |
 
 ## Page structure
 
@@ -37,6 +48,15 @@ The order follows the product brief, section 9. The design is art-directed for d
 12. **Questions:** the 12 FAQ questions from the brief.
 13. **Reserve:** "first batch, first in line", with the price and the second signup form.
 14. **Footer:** a giant "beep boop" bleeding off the bottom.
+
+## Waitlist signups → Google Sheet
+
+Both signup forms post to `app/api/waitlist/route.ts`, which forwards the email to a Google Apps Script web app attached to the waitlist sheet (code in `google-apps-script/waitlist.gs`). The script adds a row (timestamp, email, which form) and skips duplicates.
+
+It needs two environment variables, set in Vercel and in `.env.local` for local dev:
+
+- `WAITLIST_SCRIPT_URL`: the Apps Script web app URL (ends in `/exec`)
+- `WAITLIST_SECRET`: must match `SECRET` in the Apps Script
 
 ## Things to know before editing
 
@@ -58,7 +78,7 @@ The brief requires being honest about renders: the hero caption and the note und
 
 ### Styles
 - **House style is all lowercase.** Write copy in lowercase. `body` also sets `text-transform: lowercase` as a safety net.
-- **Fonts:** Funnel Display for headlines and Funnel Sans for everything else. No serif and no monospace.
+- **Fonts:** Inter for everything, loaded with `next/font` in `app/layout.tsx`.
 - **Look:** inspired by Teenage Engineering, with soft grey grounds, lots of space, rounded shapes, and amber `#C2642B` as the one accent. Dark sections use the brief's faceplate `#22241E`.
 - **Design settings:** colors, type sizes, spacing and motion are CSS variables at the top of `css/styles.css`.
 - **Layout:** the base styles are the simple stacked layout, and `@media (min-width: 1024px)` builds the desktop compositions.
