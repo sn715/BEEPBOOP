@@ -1,10 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import { siteConfig } from "@/lib/config";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-inter" });
-const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-jetbrains" });
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -21,7 +20,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${mono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
         {/* Marks JS as available so scroll effects only hide content when they can show it again */}
         <script dangerouslySetInnerHTML={{ __html: 'document.documentElement.classList.add("js");' }} />

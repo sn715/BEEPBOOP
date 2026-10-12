@@ -64,7 +64,7 @@ Add the two sample files and set `samples.phone` and `samples.device` in `js/con
 
 ### Styles
 - **House style is all lowercase.** Write copy in lowercase. `body` also sets `text-transform: lowercase` as a safety net.
-- **Fonts:** Funnel Display for headlines and Funnel Sans for everything else. No serif and no monospace.
+- **Fonts:** Inter for everything, loaded with `next/font` in `app/layout.tsx`.
 - **Look:** inspired by Teenage Engineering, with soft grey grounds, lots of space, rounded shapes, and amber `#C2642B` as the one accent. Dark sections use the brief's faceplate `#22241E`.
 - **Design settings:** colors, type sizes, spacing and motion are CSS variables at the top of `css/styles.css`.
 - **Layout:** the base styles are the simple stacked layout, and `@media (min-width: 1024px)` builds the desktop compositions.

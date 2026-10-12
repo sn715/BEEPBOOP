@@ -100,7 +100,7 @@ export default function Home() {
                     src="/images/app-diary.png"
                     width={393}
                     height={852}
-                    alt="The diary screen: shows grouped by month, each with the artist, venue, date and a photo from the night."
+                    alt="The diary screen: a new concert button above shows grouped by month, including Ryan Beatty, Kali Uchis, Playboi Carti, Sabrina Carpenter, Djo and Lorde, each with the venue, date and a photo."
                     priority
                   />
                 </div>
@@ -109,7 +109,7 @@ export default function Home() {
                     src="/images/app-journal.png"
                     width={393}
                     height={852}
-                    alt="A journal entry for Ryan Beatty at the Greek Theater: photos, a five-star rating and a written review."
+                    alt="A journal entry for Ryan Beatty at the Greek Theater: stage photos, a four-star rating and a written review."
                     priority
                   />
                 </div>
