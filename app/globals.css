@@ -572,18 +572,12 @@ abbr {
   transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
   transition: transform var(--dur) var(--ease);
 }
-.phone {
-  width: 58%;
-  padding: 6px;
-  border: 1px solid var(--line);
-  border-radius: 28px;
-  background: #000;
-  overflow: hidden;
-}
+/* The images include the device frame (transparent PNGs), so .phone only positions them */
+.phone { width: 58%; }
 .phone img {
   width: 100%;
   height: auto;
-  border-radius: 22px;
+  border-radius: 0;
   filter: none;
 }
 .phone--back { transform: rotate(-4deg); opacity: 0.85; }
@@ -592,7 +586,7 @@ abbr {
   right: 0;
   top: 8%;
   transform: rotate(3deg);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.6));
 }
 
 @media (min-width: 1024px) {

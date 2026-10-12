@@ -97,19 +97,19 @@ export default function Home() {
               <div className="phones">
                 <div className="phone phone--back">
                   <Image
-                    src="/images/app-diary.png"
-                    width={393}
-                    height={852}
-                    alt="The diary screen: a new concert button above shows grouped by month, including Ryan Beatty, Kali Uchis, Playboi Carti, Sabrina Carpenter, Djo and Lorde, each with the venue, date and a photo."
+                    src="/images/phone-diary.png"
+                    width={500}
+                    height={877}
+                    alt="The diary screen on an iPhone: shows grouped by month, including Ryan Beatty, Kali Uchis, Playboi Carti, Sabrina Carpenter, Djo, Lorde and Tate McRae, each with the venue, date and a photo."
                     priority
                   />
                 </div>
                 <div className="phone phone--front">
                   <Image
-                    src="/images/app-journal.png"
-                    width={393}
-                    height={852}
-                    alt="A journal entry for Ryan Beatty at the Greek Theater: stage photos, a four-star rating and a written review."
+                    src="/images/phone-journal.png"
+                    width={500}
+                    height={877}
+                    alt="A journal entry on an iPhone for Ryan Beatty at the Greek Theater: concert photos, a four-star rating and a written review."
                     priority
                   />
                 </div>
