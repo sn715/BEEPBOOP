@@ -24,8 +24,7 @@ npm start        # serve the production build
 | `lib/config.ts` | Site-wide values (name, title, description) |
 | `lib/track.ts` | The `track()` analytics hook |
 | `components/SignupForm.tsx` | Email signup form |
-| `components/Tilt.tsx` | Hero image that leans toward the mouse |
-| `components/ScrollWords.tsx` | Text that lights up word by word on scroll |
+| `public/fonts/` | Alte Haas Grotesk font files (self-hosted) |
 | `components/SiteEffects.tsx` | Scroll reveal, sticky mobile CTA, custom cursor, CTA tracking |
 | `public/images/` | App mockups and other images |
 | `assets/renders/` | Product renders of the clip-on recorder (WebP), from the earlier device page. Not used by the current page |
@@ -78,7 +77,8 @@ The brief requires being honest about renders: the hero caption and the note und
 
 ### Styles
 - **House style is all lowercase.** Write copy in lowercase. `body` also sets `text-transform: lowercase` as a safety net.
-- **Fonts:** Inter for everything, loaded with `next/font` in `app/layout.tsx`.
+- **Fonts:** Alte Haas Grotesk for headlines and body, Space Mono for small text and labels. Space Mono loads with `next/font` in `app/layout.tsx`. Alte Haas Grotesk is self-hosted: put `AlteHaasGroteskRegular.ttf` and `AlteHaasGroteskBold.ttf` in `public/fonts/` (until then the page falls back to Helvetica/Arial).
+- **Hero photos:** the four stacked cards in the hero are `.placeholder` boxes in `app/page.tsx` (`heroCards` plus the front card). To add a photo, replace a card's placeholder `<div>` with `<Image fill ... />`; the front card keeps a dark overlay so the headline stays readable.
 - **Look:** inspired by Teenage Engineering, with soft grey grounds, lots of space, rounded shapes, and amber `#C2642B` as the one accent. Dark sections use the brief's faceplate `#22241E`.
 - **Design settings:** colors, type sizes, spacing and motion are CSS variables at the top of `css/styles.css`.
 - **Layout:** the base styles are the simple stacked layout, and `@media (min-width: 1024px)` builds the desktop compositions.

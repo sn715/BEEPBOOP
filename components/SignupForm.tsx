@@ -55,7 +55,7 @@ export default function SignupForm({ location, night = false }: Props) {
         readOnly={done || status === "sending"}
       />
       <button className="signup__btn" type="submit" disabled={done || status === "sending"}>
-        {status === "sending" ? "Joining…" : "Join the waitlist"} <span aria-hidden="true">→</span>
+        {status === "sending" ? "joining…" : "join the waitlist"} <span aria-hidden="true">→</span>
       </button>
       <p className="signup__success" hidden={!done}>
         You&apos;re on the list. We&apos;ll email you the day we open. Start thinking about which show goes first.
