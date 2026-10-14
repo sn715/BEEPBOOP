@@ -13,7 +13,7 @@ export default function SiteEffects() {
     // ---------- CTA clicks ----------
     function onCtaClick(event: MouseEvent) {
       const el = (event.target as Element).closest<HTMLElement>("[data-cta]");
-      if (el) track("ViewContent", { cta: el.dataset.cta });
+      if (el) track("ViewContent", { content_type: "cta", content_id: el.dataset.cta });
     }
     document.addEventListener("click", onCtaClick);
     cleanups.push(() => document.removeEventListener("click", onCtaClick));

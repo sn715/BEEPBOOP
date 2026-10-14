@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Space_Mono } from "next/font/google";
 import { siteConfig } from "@/lib/config";
 import "./globals.css";
@@ -27,7 +28,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: 'document.documentElement.classList.add("js");' }} />
       </head>
       {/* Browser extensions (Grammarly, ColorZilla, …) add attributes to <body> before React loads */}
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {children}
+        {/* Google Analytics: production builds only, so local dev visits don't count */}
+        {process.env.NODE_ENV === "production" && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaMeasurementId}`} strategy="afterInteractive" />
+            <Script id="ga-init" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+window.gtag = gtag;
+gtag('js', new Date());
+gtag('config', '${siteConfig.gaMeasurementId}');`}
+            </Script>
+          </>
+        )}
+      </body>
     </html>
   );
 }
