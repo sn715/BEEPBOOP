@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { track } from "@/lib/track";
+import { captureAttribution } from "@/lib/attribution";
 
 // Page-wide behaviour that works on server-rendered markup:
 // CTA tracking, scroll reveal, sticky mobile CTA and the custom cursor.
@@ -9,6 +10,9 @@ export default function SiteEffects() {
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const cleanups: Array<() => void> = [];
+
+    // Remember UTM tags / referrer so they can be saved with a waitlist signup
+    captureAttribution();
 
     // ---------- CTA clicks ----------
     function onCtaClick(event: MouseEvent) {

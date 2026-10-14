@@ -45,11 +45,6 @@ const features = [
     title: "rate it, review it",
     body: "Give the show a star rating and write as much or as little as you want. Every review adds to your archive of the nights you were there for.",
   },
-  { title: "times seen", body: "Fourth time seeing them? Every entry and artist page keeps count." },
-  { title: "view from my seat", body: "Check the view before you buy. Fans post photos by venue and section." },
-  { title: "tour lore", body: "Know the bit before you go: the chant, the sign, the thing everyone's wearing to this tour." },
-  { title: "fits", body: "Post your concert outfit to the entry and get ideas for the next one." },
-  { title: "friends going", body: "See who's going, who's there tonight, and who just logged the show you missed." },
   { title: "share card", body: "Turn any entry into a ticket stub for your story or the group chat." },
   { title: "your year in live music", body: "Every December, get your recap: the shows, artists and venues of your year, and the nights you loved most." },
 ];
@@ -126,7 +121,7 @@ export default function Home() {
           <nav className="site-header__nav" aria-label="Page">
             {/* In page order. The last one is the action, so it's the only one that stands out. */}
             <a href="#how" className="link">how it works</a>
-            <a href="#features" className="link">features</a>
+            {/* <a href="#features" className="link">features</a> (section hidden for now) */}
             <a href="#waitlist" className="link link--cta" data-cta="header">join waitlist</a>
           </nav>
         </div>
@@ -233,7 +228,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ===== Features ===== */}
+        {/* Features and FAQ sections, hidden for now. Uncomment to bring them back.
+        ===== Features =====
         <section className="section features" id="features" aria-labelledby="features-title">
           <div className="container">
             <h2 id="features-title" className="section-title reveal">made for fans who plan the fit three weeks out.</h2>
@@ -248,7 +244,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ===== FAQ ===== */}
+        ===== FAQ =====
         <section className="section" id="questions" aria-labelledby="faq-title">
           <div className="container faq-grid">
             <h2 id="faq-title" className="section-title reveal">questions</h2>
@@ -262,6 +258,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        */}
 
         {/* ===== Waitlist ===== */}
         <section className="section waitlist" id="waitlist" aria-labelledby="waitlist-title">

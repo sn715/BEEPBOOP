@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 // shared secret only live in server env vars.
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const LOCATIONS = new Set(["hero", "waitlist"]);
+const ATTRIBUTION_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "referrer"] as const;
 
 export async function POST(request: Request) {
   const scriptUrl = process.env.WAITLIST_SCRIPT_URL;
@@ -14,7 +15,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "not_configured" }, { status: 500 });
   }
 
-  let body: { email?: unknown; location?: unknown };
+  let body: Record<string, unknown>;
   try {
     body = await request.json();
   } catch {
@@ -27,12 +28,19 @@ export async function POST(request: Request) {
   }
   const location = typeof body.location === "string" && LOCATIONS.has(body.location) ? body.location : "";
 
+  // Where the visitor came from: short strings only, anything else is dropped
+  const attribution: Record<string, string> = {};
+  for (const key of ATTRIBUTION_KEYS) {
+    const value = body[key];
+    if (typeof value === "string" && value.trim()) attribution[key] = value.trim().slice(0, 100);
+  }
+
   try {
     // Apps Script answers POSTs with a redirect to the result; fetch follows it
     const res = await fetch(scriptUrl, {
       method: "POST",
       headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify({ secret, email, location }),
+      body: JSON.stringify({ secret, email, location, ...attribution }),
       cache: "no-store",
     });
     const result = (await res.json()) as { ok?: boolean; error?: string };

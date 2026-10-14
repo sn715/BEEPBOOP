@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { track } from "@/lib/track";
+import { getAttribution } from "@/lib/attribution";
 
 type Props = {
   location: "hero" | "waitlist";
@@ -24,7 +25,7 @@ export default function SignupForm({ location, night = false }: Props) {
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, location }),
+        body: JSON.stringify({ email, location, ...getAttribution() }),
       });
       if (!res.ok) throw new Error(`waitlist signup failed: ${res.status}`);
       track("Lead", { content_name: "waitlist", location });

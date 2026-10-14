@@ -4,10 +4,23 @@
  * Paste this into the sheet's Apps Script editor (Extensions → Apps Script),
  * set SECRET to the same value as WAITLIST_SECRET in Vercel, then
  * Deploy → New deployment → Web app (Execute as: Me, Who has access: Anyone).
+ * After editing an existing deployment, use Deploy → Manage deployments → edit →
+ * Version: New version, so the URL stays the same.
  * The site's /api/waitlist route posts here; the URL and secret stay server-side.
  */
 const SECRET = "PASTE_WAITLIST_SECRET_HERE";
-const HEADERS = ["timestamp", "email", "signed up from"];
+const HEADERS = [
+  "timestamp",
+  "email",
+  "signed up from",
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_content",
+  "utm_term",
+  "referrer",
+];
+const ATTRIBUTION_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "referrer"];
 
 function doPost(e) {
   const lock = LockService.getScriptLock();
@@ -22,7 +35,9 @@ function doPost(e) {
     }
 
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
-    if (sheet.getLastRow() === 0) sheet.appendRow(HEADERS);
+    // Write (or extend) the header row so new columns get labels on older sheets
+    const headerRange = sheet.getRange(1, 1, 1, HEADERS.length);
+    if (headerRange.getValues()[0].join("") !== HEADERS.join("")) headerRange.setValues([HEADERS]);
 
     // Skip emails that are already on the list
     const lastRow = sheet.getLastRow();
@@ -33,11 +48,19 @@ function doPost(e) {
       }
     }
 
-    sheet.appendRow([new Date(), email, String(data.location || "").slice(0, 50)]);
+    const row = [new Date(), text(email), text(data.location)].concat(ATTRIBUTION_KEYS.map((key) => text(data[key])));
+    sheet.appendRow(row);
     return json({ ok: true });
   } finally {
     lock.releaseLock();
   }
+}
+
+// Visitor-supplied values are stored as plain text. Sheets would otherwise run
+// anything starting with = + - @ as a formula.
+function text(value) {
+  const s = String(value || "").slice(0, 254);
+  return /^[=+\-@]/.test(s) ? "'" + s : s;
 }
 
 function json(body) {
