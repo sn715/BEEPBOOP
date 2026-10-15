@@ -164,7 +164,7 @@ export default function Home() {
                   Beep Boop is your personal concert journal to help you document your musical memories.
                 </h2>
                 <div className="intro__signup">
-                  <p className="mono-label">join the waitlist. coming soon to iPhone.</p>
+    
                   <SignupForm location="hero" />
                 </div>
               </div>

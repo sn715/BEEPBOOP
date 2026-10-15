@@ -459,7 +459,7 @@ input, textarea { font: inherit; }
   border-bottom: 1px solid var(--line);
 }
 .intro__statement {
-  max-width: 24ch;
+  max-width: 32ch; /* three lines on desktop */
   font-size: var(--text-statement);
   line-height: 1.15;
 }

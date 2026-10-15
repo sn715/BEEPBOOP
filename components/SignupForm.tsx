@@ -59,7 +59,7 @@ export default function SignupForm({ location, night = false }: Props) {
         {status === "sending" ? "joining…" : "join the waitlist"} <span aria-hidden="true">→</span>
       </button>
       <p className="signup__success" hidden={!done}>
-        You&apos;re on the list. We&apos;ll email you the day we open. Start thinking about which show goes first.
+        you&apos;re on the list!
       </p>
       <p className="signup__error" role="alert" hidden={status !== "error"}>
         That didn&apos;t go through. Please try again in a moment.
