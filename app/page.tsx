@@ -128,7 +128,7 @@ export default function Home() {
       </header>
 
       <main id="main">
-        {/* ===== Hero: photos fall onto the stack, then the headline fades in ===== */}
+        {/* ===== Hero: photos fall onto the stack, then the headline appears ===== */}
         <section className="hero" id="top" aria-labelledby="hero-title">
           <div className="container">
             <div className="hero__stack">
@@ -146,10 +146,11 @@ export default function Home() {
                   priority
                   sizes="(min-width: 1140px) 1100px, 100vw"
                 />
-                <div className="hero__text">
-                  <h1 id="hero-title" className="hero__title">All your concert memories in one place.</h1>
-                  <p className="hero__sub">the concert scrapbook to keep your photos, videos, and feelings.</p>
-                </div>
+              </div>
+              {/* Not inside the front card, so it doesn't drop with it; it appears once the photos have landed */}
+              <div className="hero__text">
+                <h1 id="hero-title" className="hero__title">All your concert memories in one place.</h1>
+                <p className="hero__sub">the concert scrapbook to keep your photos, videos, and feelings.</p>
               </div>
             </div>
           </div>

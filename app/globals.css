@@ -414,7 +414,7 @@ input, textarea { font: inherit; }
 }
 .hero__text {
   position: absolute;
-  inset: 0;
+  inset: 6% 4% 3% 6%; /* same area as the front card */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -425,13 +425,14 @@ input, textarea { font: inherit; }
   pointer-events: none;
   z-index: 1;
   text-shadow: 0 1px 14px rgba(0, 0, 0, 0.55); /* keeps the text readable over busy photos */
+  /* hidden until the front photo lands (0.7s delay + 0.8s drop), then shown at once */
+  animation: hero-text-in 0s linear 1.5s both;
 }
 .hero__title {
   max-width: 14ch;
   font-size: var(--text-h1);
   line-height: 1.05;
   color: #fff;
-  animation: fade-in 1.1s ease-out 1.4s both;
 }
 .hero__sub {
   max-width: 34ch;
@@ -439,7 +440,6 @@ input, textarea { font: inherit; }
   font-size: clamp(13px, 0.6vw + 10px, 17px);
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.9);
-  animation: fade-in 1.1s ease-out 1.9s both;
 }
 
 @media (min-width: 768px) {
@@ -655,7 +655,11 @@ input, textarea { font: inherit; }
 
 /* ===== 5. Motion & cursor ===== */
 
-/* Hero photos drop onto the pile, then the headline fades in */
+/* Hero photos drop onto the pile; the headline then switches on (no fade) */
+@keyframes hero-text-in {
+  from { visibility: hidden; }
+  to { visibility: visible; }
+}
 @keyframes card-drop {
   from {
     opacity: 0;
@@ -666,10 +670,6 @@ input, textarea { font: inherit; }
     opacity: 1;
     transform: translateY(0) rotate(var(--r)) scale(1);
   }
-}
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: none; }
 }
 
 /* Scroll reveal (only hides content when JS is running) */
