@@ -425,8 +425,8 @@ input, textarea { font: inherit; }
   pointer-events: none;
   z-index: 1;
   text-shadow: 0 1px 14px rgba(0, 0, 0, 0.55); /* keeps the text readable over busy photos */
-  /* hidden until the front photo lands (0.7s delay + 0.8s drop), then shown at once */
-  animation: hero-text-in 0s linear 1.5s both;
+  /* fades in from when the first photo starts dropping (0.1s) until the front one lands (1.5s) */
+  animation: hero-text-in 1.4s ease-out 0.1s both;
 }
 .hero__title {
   max-width: 14ch;
@@ -655,10 +655,10 @@ input, textarea { font: inherit; }
 
 /* ===== 5. Motion & cursor ===== */
 
-/* Hero photos drop onto the pile; the headline then switches on (no fade) */
+/* Hero photos drop onto the pile while the headline fades in (it doesn't move) */
 @keyframes hero-text-in {
-  from { visibility: hidden; }
-  to { visibility: visible; }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 @keyframes card-drop {
   from {
