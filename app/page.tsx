@@ -97,12 +97,12 @@ function StepMediaView({ media }: { media: StepMedia }) {
 
 function Logo() {
   return (
-    <a href="#top" className="logo" aria-label="beep boop, back to top">
+    <a href="#top" className="logo" aria-label="bridge, back to top">
       <span className="logo__dots" aria-hidden="true">
         <span />
         <span />
       </span>
-      <span className="logo__word">beep boop</span>
+      <span className="logo__word">bridge</span>
     </a>
   );
 }
@@ -162,7 +162,7 @@ export default function Home() {
             <div className="intro__grid">
               <div className="intro__copy reveal">
                 <h2 id="intro-title" className="intro__statement">
-                  Beep Boop is your personal concert journal to help you document your musical memories.
+                  Bridge is your personal concert journal to help you document your musical memories.
                 </h2>
                 <div className="intro__signup">
     
@@ -274,7 +274,7 @@ export default function Home() {
             </div>
             <div className="waitlist__copy reveal">
               <h2 id="waitlist-title" className="waitlist__title">Your next show is coming up. Start the diary now.</h2>
-              <p className="mono-body">Join the waitlist and we&apos;ll let you know the day beep boop opens.</p>
+              <p className="mono-body">Join the waitlist and we&apos;ll let you know the day bridge opens.</p>
               <SignupForm location="waitlist" />
             </div>
           </div>
@@ -290,9 +290,9 @@ export default function Home() {
               <a href="#privacy" className="link">privacy</a>
               <a href="#" className="link">terms</a>
             </nav>
-            <p>© {new Date().getFullYear()} beep boop</p>
+            <p>© {new Date().getFullYear()} bridge</p>
           </div>
-          <p className="site-footer__mark" aria-hidden="true">beep boop</p>
+          <p className="site-footer__mark" aria-hidden="true">bridge</p>
         </div>
       </footer>
 

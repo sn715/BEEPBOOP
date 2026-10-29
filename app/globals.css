@@ -1,5 +1,5 @@
 /* =========================================================
-   beep boop: site styles
+   bridge: site styles
 
    Light, editorial look: white page, black type, film photos,
    and the two logo dots (coral + periwinkle) as the only color. Base rules are the stacked mobile
@@ -626,7 +626,7 @@ input, textarea { font: inherit; }
 .site-footer__links { display: flex; gap: var(--space-md); }
 .site-footer__mark {
   margin-top: var(--space-lg);
-  font-size: calc((min(100vw, var(--container-max)) - 2 * var(--gutter)) / 4.4);
+  font-size: calc((min(100vw, var(--container-max)) - 2 * var(--gutter)) / 2.75); /* sized so "bridge" spans the page */
   line-height: 0.75;
   letter-spacing: -0.02em;
   white-space: nowrap;

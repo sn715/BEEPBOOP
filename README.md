@@ -1,7 +1,7 @@
-# BEEPBOOP
+# bridge
 gx landing page!
 
-Pre-launch landing page for **Beep Boop**, a clip-on concert recorder. Visitors arrive from ads, and the page's job is to answer "my phone already does this" and collect reservation emails. The product brief decides section order, copy and claims; if anything here conflicts with it, the brief wins.
+Pre-launch landing page for **Bridge**, a clip-on concert recorder. Visitors arrive from ads, and the page's job is to answer "my phone already does this" and collect reservation emails. The product brief decides section order, copy and claims; if anything here conflicts with it, the brief wins.
 
 It's a Next.js (App Router, TypeScript) app. Fonts are loaded with `next/font`.
 
@@ -37,7 +37,7 @@ The order follows the product brief, section 9. The design is art-directed for d
 2. **Marquee:** moments from a night out, scrolling in big type.
 3. **The tradeoff:** the problem, in big type. The words light up as you scroll.
 4. **Full-width venue photo**
-5. **The sound:** the A/B player is a record. Press it to play, and pick "on a phone" or "on beep boop" underneath.
+5. **The sound:** the A/B player is a record. Press it to play, and pick "on a phone" or "on bridge" underneath.
 6. **The button:** an overlapping collage of an arch-shaped image and a small detail shot.
 7. **The card:** no account, no cloud, no subscription. On small screens this section moves up to sit right after the tradeoff, as the brief asks.
 8. **The app:** deliberately quieter than the hardware sections.
@@ -46,7 +46,7 @@ The order follows the product brief, section 9. The design is art-directed for d
 11. **The details:** the spec table, low on the page for the technical crowd.
 12. **Questions:** the 12 FAQ questions from the brief.
 13. **Reserve:** "first batch, first in line", with the price and the second signup form.
-14. **Footer:** a giant "beep boop" bleeding off the bottom.
+14. **Footer:** a giant "bridge" bleeding off the bottom.
 
 ## Waitlist signups → Google Sheet
 
@@ -101,4 +101,4 @@ To turn it on, paste the Meta Pixel base code into `<head>` in `index.html`. Not
 - [ ] Real renders and photos in place of the placeholders (keep the "prototype render" caption for renders)
 - [ ] Confirm every TBC (specs, FAQ answers, ship window)
 - [ ] Real A/B audio samples
-- [ ] Logo and wordmark (currently just "Beep Boop" in text)
+- [ ] Logo and wordmark (currently just "Bridge" in text)
