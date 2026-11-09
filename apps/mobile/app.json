@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "bridge",
+    "slug": "bridge",
+    "scheme": "bridge",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#000000",
+    "ios": {
+      "supportsTablet": false
+    },
+    "web": {
+      "favicon": "./assets/images/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-image",
+      "expo-status-bar",
+      "@react-native-community/datetimepicker"
+    ]
+  }
+}

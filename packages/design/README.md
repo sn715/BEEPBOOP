@@ -14,12 +14,12 @@ The bridge look, written down once so the website and the app match.
 | text-soft | `#3a3a3a` | mono body copy |
 | text-muted | `#6b6b6b` | labels, captions |
 | line | `#d9d9d9` | dividers, borders |
-| bg | `#ffffff` | page background (the app screens are black) |
+| bg | `#ffffff` | page background (the app screens are black `#000000`; see `apps/mobile/lib/theme.ts`) |
 
 ## Type
 
 - **Alte Haas Grotesk** (regular 400, bold 700) for headlines and body. Self-hosted; files in `apps/web/public/fonts`.
-- **Space Mono** (400, 700) for small text, labels and buttons. Free on Google Fonts.
+- **Space Mono** (400, 700) for small text, labels and buttons on the website. Free on Google Fonts. The app uses Alte Haas Grotesk only.
 - House style is lowercase for headings and UI labels.
 
 ## Logo

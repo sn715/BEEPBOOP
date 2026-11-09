@@ -8,7 +8,7 @@ This repo holds everything for bridge, organized as an npm workspaces monorepo.
 .
 ├── apps/
 │   ├── web/          the landing page + waitlist (Next.js), live on Vercel
-│   └── mobile/       the bridge iPhone app (Expo / React Native), folder structure only so far
+│   └── mobile/       the bridge iPhone app (Expo / React Native), early demo with its own install
 ├── packages/
 │   ├── shared/       TypeScript types and constants used by web and mobile
 │   └── design/       colors, fonts and logo rules

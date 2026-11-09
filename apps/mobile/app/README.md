@@ -4,13 +4,15 @@ Expo Router turns this folder into the app's navigation: each file is a screen, 
 
 | Path | Screen |
 |---|---|
-| `_layout.tsx` | Root layout: loads fonts, checks sign-in, sends signed-out users to `(auth)` |
-| `(auth)/` | Sign in, sign up, choose a username |
+| `_layout.tsx` | Root layout: loads fonts. Later it will check sign-in and send signed-out users to `(auth)`; for now `index.tsx` always opens the welcome screen |
+| `(auth)/` | **Onboarding** (built): welcome, phone, verify, name, handle, photo, artists, friends, done |
 | `(tabs)/_layout.tsx` | Bottom tab bar |
-| `(tabs)/diary/` | **Diary**: every show you've logged, grouped by month, with a "new concert" button |
+| `(tabs)/diary/` | **Diary** (built): every show you've logged, grouped by month, with a "new concert" button |
 | `(tabs)/explore/` | **Explore**: friends going, view from my seat, tour lore |
 | `(tabs)/profile/` | **Profile**: your stats, times seen, year recap, settings |
-| `entry/[id].tsx` | **Journal entry**: photos, rating, review, privacy (public / friends / private) |
-| `entry/new.tsx` | **New concert**: search artist and date, add photos, rate, review |
+| `entry/[id].tsx` | **Journal entry** (built): photos, artist, venue, date, review, privacy (public / private) |
+| `entry/media-select.tsx` | **Media select** (built): first step of a new concert, picking clips from the camera roll |
+| `entry/trim.tsx` | **Trim** (built): drag the handles to set a clip's length, then save, cancel or remove it |
+| `entry/new.tsx` | **New concert** (built): artist, venue, date and the written entry |
 
-The diary and journal entry screens match the app mockups on the landing page (`apps/web/public/images/phone-diary.png` and `phone-journal.png`).
+The landing page's app mockups (`apps/web/public/images/phone-diary.png` and `phone-journal.png`) show the earlier black design, and may need updating to match.
