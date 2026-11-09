@@ -1,22 +1,13 @@
 {
-  "name": "bridge-landing",
-  "version": "0.1.0",
+  "name": "bridge",
   "private": true,
+  "workspaces": [
+    "apps/web"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "15.5.27",
-    "react": "19.1.1",
-    "react-dom": "19.1.1"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "typescript": "^5"
+    "dev": "npm run dev -w apps/web",
+    "build": "npm run build -w apps/web",
+    "start": "npm run start -w apps/web",
+    "lint": "npm run lint -w apps/web"
   }
 }

@@ -1,104 +1,37 @@
 # bridge
-gx landing page!
 
-Pre-launch landing page for **Bridge**, a clip-on concert recorder. Visitors arrive from ads, and the page's job is to answer "my phone already does this" and collect reservation emails. The product brief decides section order, copy and claims; if anything here conflicts with it, the brief wins.
+A personal archive of the concerts you've been to: log a show, rate and review it, keep the photos and clips from the night, and choose who sees each entry.
 
-It's a Next.js (App Router, TypeScript) app. Fonts are loaded with `next/font`.
+This repo holds everything for bridge, organized as an npm workspaces monorepo.
 
-## Running it
-
-```bash
-npm install
-npm run dev      # http://localhost:3000
-npm run build    # production build
-npm start        # serve the production build
+```
+.
+├── apps/
+│   ├── web/          the landing page + waitlist (Next.js), live on Vercel
+│   └── mobile/       the bridge iPhone app (Expo / React Native), folder structure only so far
+├── packages/
+│   ├── shared/       TypeScript types and constants used by web and mobile
+│   └── design/       colors, fonts and logo rules
+├── supabase/         the app's backend: database migrations and edge functions
+└── package.json      workspace root
 ```
 
-## Files
+Each folder has its own README with details.
 
-| File | What it does |
-|---|---|
-| `app/page.tsx` | The page: every section, in order |
-| `app/layout.tsx` | `<html>` shell, metadata, fonts |
-| `app/globals.css` | All styles, written mobile-first |
-| `lib/config.ts` | Site-wide values (name, title, description) |
-| `lib/track.ts` | The `track()` analytics hook |
-| `components/SignupForm.tsx` | Email signup form |
-| `public/fonts/` | Alte Haas Grotesk font files (self-hosted) |
-| `components/SiteEffects.tsx` | Scroll reveal, sticky mobile CTA, custom cursor, CTA tracking |
-| `public/images/` | App mockups and other images |
-| `assets/renders/` | Product renders of the clip-on recorder (WebP), from the earlier device page. Not used by the current page |
+## Commands
 
-## Page structure
+Run from the repo root:
 
-The order follows the product brief, section 9. The design is art-directed for desktop, and smaller screens get a simpler stacked version.
+```bash
+npm install       # installs every workspace
+npm run dev       # landing page at http://localhost:3000
+npm run build     # production build of the landing page
+```
 
-1. **Hero:** one sentence saying what it is, plus the email signup. The image is shaped like a torn concert ticket stub and tilts gently toward the mouse.
-2. **Marquee:** moments from a night out, scrolling in big type.
-3. **The tradeoff:** the problem, in big type. The words light up as you scroll.
-4. **Full-width venue photo**
-5. **The sound:** the A/B player is a record. Press it to play, and pick "on a phone" or "on bridge" underneath.
-6. **The button:** an overlapping collage of an arch-shaped image and a small detail shot.
-7. **The card:** no account, no cloud, no subscription. On small screens this section moves up to sit right after the tradeoff, as the brief asks.
-8. **The app:** deliberately quieter than the hardware sections.
-9. **How it works:** four steps with colored number dots.
-10. **The object**
-11. **The details:** the spec table, low on the page for the technical crowd.
-12. **Questions:** the 12 FAQ questions from the brief.
-13. **Reserve:** "first batch, first in line", with the price and the second signup form.
-14. **Footer:** a giant "bridge" bleeding off the bottom.
+To run a command in one workspace: `npm run <script> -w apps/web`.
 
-## Waitlist signups → Google Sheet
+## Deploying the landing page
 
-Both signup forms post to `app/api/waitlist/route.ts`, which forwards the email to a Google Apps Script web app attached to the waitlist sheet (code in `google-apps-script/waitlist.gs`). The script adds a row (timestamp, email, which form) and skips duplicates.
+Vercel builds `apps/web`. In the Vercel project, **Settings → Build and Deployment → Root Directory** must be `apps/web`. Pushing to `main` deploys to production; other branches get preview URLs.
 
-It needs two environment variables, set in Vercel and in `.env.local` for local dev:
-
-- `WAITLIST_SCRIPT_URL`: the Apps Script web app URL (ends in `/exec`)
-- `WAITLIST_SECRET`: must match `SECRET` in the Apps Script
-
-## Things to know before editing
-
-### Prices live in `js/config.js` only
-Any element with `data-price="reservation"` or `data-price="retail"` is filled in from the config. Never type a price into the HTML.
-
-### The A/B audio player
-Add the two sample files and set `samples.phone` and `samples.device` in `js/config.js`. The player plays both in sync and switches which one you hear. Until both are set, it shows an honest placeholder message, as the brief requires.
-
-### Unconfirmed facts are marked TBC
-`<span class="tbc">tbc</span>` shows up as a soft amber pill. The brief says to never guess specs, so these stay visible until the team confirms each one. To find them all, search the HTML for `class="tbc"`.
-
-### Images and placeholders
-Product renders sit in `.placeholder.placeholder--render` frames with an `<img>` inside. The frame's shape class (`--arch`, `--object`, `--bleed` and so on) sets the crop, and `object-position` on the `<img>` fine-tunes it. The renders have black backgrounds, so render frames are black too.
-
-Spots still waiting on real photos stay as grey `.placeholder` boxes with a label describing the shot: the crowd/venue photo, the memory card in a palm, and the app screens. To fill one, remove its label `<span>`, add `placeholder--render` (or keep the grey for light photos), and drop in an `<img>`.
-
-The brief requires being honest about renders: the hero caption and the note under "the object" say the images are prototype renders. Keep those until real photos replace them.
-
-### Styles
-- **House style is all lowercase.** Write copy in lowercase. `body` also sets `text-transform: lowercase` as a safety net.
-- **Fonts:** Alte Haas Grotesk for headlines and body, Space Mono for small text and labels. Space Mono loads with `next/font` in `app/layout.tsx`. Alte Haas Grotesk is self-hosted: put `AlteHaasGroteskRegular.ttf` and `AlteHaasGroteskBold.ttf` in `public/fonts/` (until then the page falls back to Helvetica/Arial).
-- **Hero photos:** the four stacked cards in the hero are `.placeholder` boxes in `app/page.tsx` (`heroCards` plus the front card). To add a photo, replace a card's placeholder `<div>` with `<Image fill ... />`; the front card keeps a dark overlay so the headline stays readable.
-- **Look:** inspired by Teenage Engineering, with soft grey grounds, lots of space, rounded shapes, and amber `#C2642B` as the one accent. Dark sections use the brief's faceplate `#22241E`.
-- **Design settings:** colors, type sizes, spacing and motion are CSS variables at the top of `css/styles.css`.
-- **Layout:** the base styles are the simple stacked layout, and `@media (min-width: 1024px)` builds the desktop compositions.
-- **Image shapes:** `.placeholder` modifiers set the shape: `--arch`, `--circle`, `--screen`, `--object`, `--bleed`, plus the `.ticket` in the hero.
-
-### Motion and the custom cursor
-The custom cursor (a dot that inverts what's under it and grows over links) only appears on devices with a mouse or trackpad. Over the record it says "play". The ticket tilt, marquee, word lighting, scroll reveals and record spin all respect "reduce motion".
-
-## Tracking (Meta Pixel)
-Every event goes through one `track()` function in `js/main.js`:
-- Signup form submit → `Lead` (includes which form: `hero` or `reserve`)
-- CTA clicks → `ViewContent` (from each element's `data-cta` attribute)
-- Playing the A/B sample → `ViewContent`
-
-To turn it on, paste the Meta Pixel base code into `<head>` in `index.html`. Nothing else needs to change.
-
-## Next steps
-- [ ] Connect the signup forms to an email service (the TODO in `js/main.js`)
-- [ ] Add the Meta Pixel base code
-- [ ] Real renders and photos in place of the placeholders (keep the "prototype render" caption for renders)
-- [ ] Confirm every TBC (specs, FAQ answers, ship window)
-- [ ] Real A/B audio samples
-- [ ] Logo and wordmark (currently just "Bridge" in text)
+Local secrets for the waitlist live in `apps/web/.env.local` (not committed).
